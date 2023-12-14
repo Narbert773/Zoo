@@ -35,7 +35,7 @@ export default function NavBar() {
           <div className="navbar-nav ms-auto">
             <a
               className="nav-link"
-              href="/admin"
+              href="/register"
               style={{ marginLeft: 'auto', marginRight: '40px', fontSize: '20px' }}
             >
               Вход
