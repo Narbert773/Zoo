@@ -1,3 +1,5 @@
+// Нужно поправить, работает только после перезагрузки
+
 import React, { useState } from 'react';
 
 export default function TarifCard({ tarif, setTarifState }) {
