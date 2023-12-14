@@ -17,6 +17,7 @@ export default function TarifCard({ tarif, setTarifState }) {
     });
     if (response.status === 200) {
       const updatedTarif = await response.json();
+      console.log(updatedTarif);
       setTarifState((prev) => prev.map((t) => (t.id === tarifId ? updatedTarif : t)));
     }
   };

@@ -20,6 +20,7 @@ tarifsRouter.patch('/:tarifId', async (req, res) => {
     if (price) targetTarif.price = price;
 
     await targetTarif.save();
+
     res.json(targetTarif);
   } catch (err) {
     console.log(err);
