@@ -7,6 +7,9 @@ import jsxRender from './utils/jsxRender';
 import indexRouter from './routes/indexRouter';
 import apiRouter from './routes/apiRouter';
 import resLocals from './middlewares/resLocals';
+import animalsRouter from './routes/animalsRouter';
+import tarifsRouter from './routes/tarifsRouter';
+import registerRouter from './routes/registerRouter';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -22,6 +25,9 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(resLocals);
 
+app.use('/tarifs', tarifsRouter);
+app.use('/animals', animalsRouter);
+app.use('/register', registerRouter);
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
 
