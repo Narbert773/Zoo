@@ -10,6 +10,7 @@ import resLocals from './middlewares/resLocals';
 import animalsRouter from './routes/animalsRouter';
 import tarifsRouter from './routes/tarifsRouter';
 import registerRouter from './routes/registerRouter';
+import adminsRouter from './routes/adminsRouter';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -25,6 +26,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(resLocals);
 
+app.use('/admins', adminsRouter);
 app.use('/tarifs', tarifsRouter);
 app.use('/animals', animalsRouter);
 app.use('/register', registerRouter);
