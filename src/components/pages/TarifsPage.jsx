@@ -1,7 +1,16 @@
-import React from 'react'
+import React from 'react';
+import TarifCard from '../ui/TarifCard';
 
-export default function TarifsPage() {
+export default function TarifsPage({ tarifs }) {
   return (
-    <div>TarifsPage</div>
-  )
+    <div className="container m-2">
+      {tarifs.map((tarif) => (
+        <div key={tarif.id} className="row justify-content-center">
+          <div className="col-8">
+            <TarifCard tarif={tarif} />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 }
