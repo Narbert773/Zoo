@@ -1,7 +1,15 @@
-import React from 'react'
+import React from 'react';
 
 export default function AdminsPage() {
   return (
-    <div>AdminsPage</div>
-  )
+    <>
+      <h1>Добро пожаловать в команду нашего зоопарка!</h1>
+      <div>
+        <a href="/animals">Редактирование животных</a>
+      </div>
+      <div>
+        <a href="/tarifs">Редактирование тарифов</a>
+      </div>
+    </>
+  );
 }

@@ -16,6 +16,12 @@ export default function AnimalCard({ animal }) {
           </div>
         </div>
       </div>
+      <button type="button" className="btn btn-info">
+        Редактировать
+      </button>
+      <button type="button" className="btn btn-danger">
+        Удалить
+      </button>
     </div>
   );
 }
