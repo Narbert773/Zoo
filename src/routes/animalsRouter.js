@@ -9,6 +9,8 @@ animalsRouter.get('/', async (req, res) => {
   res.render('AnimalsPage', initState);
 });
 
+animalsRouter.get('/add', (req, res) => res.render('AnimalsAddPage'));
+
 animalsRouter.get('/:animalId', async (req, res) => {
   const { animalId } = req.params;
   const oneAnimal = await Animal.findOne({ where: { id: animalId }, include: Image });
