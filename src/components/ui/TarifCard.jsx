@@ -1,5 +1,3 @@
-// Нужно поправить, работает только после перезагрузки
-
 import React, { useState } from 'react';
 
 export default function TarifCard({ tarif, setTarifState, admin }) {
@@ -31,7 +29,13 @@ export default function TarifCard({ tarif, setTarifState, admin }) {
   };
 
   return (
-    <div className="card" style={{ width: '18rem' }}>
+    <div
+      className="card"
+      style={{
+        width: '18rem',
+        height: '250px',
+      }}
+    >
       {isEditing ? (
         <>
           <input onChange={changeHandler} value={formData.name} name="name" type="text" />
