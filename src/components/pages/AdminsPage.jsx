@@ -10,6 +10,9 @@ export default function AdminsPage() {
       <div>
         <a href="/tarifs">Редактирование тарифов</a>
       </div>
+      <div>
+        <a href="/animals/add">Добавить новое животное</a>
+      </div>
     </>
   );
 }

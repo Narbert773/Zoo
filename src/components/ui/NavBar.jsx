@@ -1,6 +1,7 @@
 import React from 'react';
 
-export default function NavBar() {
+export default function NavBar({ admin }) {
+  console.log(admin);
   return (
     <nav className="navbar navbar-expand" style={{ backgroundColor: '#e3f2fd' }}>
       <div className="container-fluid">
@@ -31,15 +32,35 @@ export default function NavBar() {
             <a className="nav-link" href="/tarifs" style={{ marginLeft: '40px', fontSize: '20px' }}>
               Тарифы
             </a>
+            {admin ? (
+              <a
+                className="nav-link"
+                href="/admins"
+                style={{ marginLeft: '50px', fontSize: '20px' }}
+              >
+                Администрирование
+              </a>
+            ) : null}
           </div>
           <div className="navbar-nav ms-auto">
-            <a
-              className="nav-link"
-              href="/register"
-              style={{ marginLeft: 'auto', marginRight: '40px', fontSize: '20px' }}
-            >
-              Вход
-            </a>
+            {admin ? null : (
+              <a
+                className="nav-link"
+                href="/auth/login"
+                style={{ marginLeft: 'auto', marginRight: '40px', fontSize: '20px' }}
+              >
+                Вход
+              </a>
+            )}
+            {admin ? (
+              <a
+                className="nav-link"
+                href="/auth/logout"
+                style={{ marginLeft: 'auto', marginRight: '40px', fontSize: '20px' }}
+              >
+                Выход
+              </a>
+            ) : null}
           </div>
         </div>
       </div>

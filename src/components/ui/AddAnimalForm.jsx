@@ -1,13 +1,25 @@
 import React from 'react';
 
 export default function AddAnimalForm() {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = Object.fromEntries(new FormData(e.target));
+    const response = await fetch('/animals', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    if (response.status === 200) {
+      window.location.href = '/animals';
+    }
+  };
   return (
-    <form action="/animals" method="POST">
+    <form onSubmit={handleSubmit}>
       <div className="mb-3">
         <label htmlFor="animalTitleId" className="form-label">
           Название животного
         </label>
-        <input name="title" type="text" className="form-control" id="animalTitleId" />
+        <input name="name" type="text" className="form-control" id="animalTitleId" />
       </div>
       <div className="mb-3">
         <label htmlFor="animalDescriptionId" className="form-label">

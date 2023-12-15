@@ -5,12 +5,12 @@ const adminsRouter = express.Router();
 
 adminsRouter.get('/', async (req, res) => {
   try {
-    const allAdmins = await Admin.findAll();
-    const initState = { admins: allAdmins };
+    const admin = await Admin.findOne();
+    const initState = { admin: admin };
     res.render('AdminsPage', initState);
-  } catch (error) {
-    console.log(error);
-    res.status(500).json(error);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 
