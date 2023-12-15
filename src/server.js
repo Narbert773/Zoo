@@ -9,7 +9,8 @@ import apiRouter from './routes/apiRouter';
 import resLocals from './middlewares/resLocals';
 import animalsRouter from './routes/animalsRouter';
 import tarifsRouter from './routes/tarifsRouter';
-import registerRouter from './routes/registerRouter';
+import authRouter from './routes/authRouter';
+import apiAuthRouter from './routes/api/apiAuthRouter';
 import adminsRouter from './routes/adminsRouter';
 
 const PORT = process.env.PORT || 3000;
@@ -23,13 +24,15 @@ app.use(morgan('dev'));
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 app.use(resLocals);
 
 app.use('/admins', adminsRouter);
 app.use('/tarifs', tarifsRouter);
 app.use('/animals', animalsRouter);
-app.use('/register', registerRouter);
+app.use('/api/auth', apiAuthRouter);//добавление пользователя для регистрации и логина
+app.use('/auth', authRouter);//отрисовка регистарции и логина
+app.use('/api', apiRouter); //не используем
 app.use('/', indexRouter);
-app.use('/api', apiRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));

@@ -4,9 +4,14 @@ import { Admin } from '../../db/models';
 const adminsRouter = express.Router();
 
 adminsRouter.get('/', async (req, res) => {
-  const allAdmins = await Admin.findAll();
-  const initState = { admins: allAdmins };
-  res.render('AdminsPage', initState);
+  try {
+    const admin = await Admin.findOne();
+    const initState = { admin: admin };
+    res.render('AdminsPage', initState);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 export default adminsRouter;
