@@ -14,28 +14,60 @@ export default function AddAnimalForm() {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="mb-3">
-        <label htmlFor="animalTitleId" className="form-label">
-          Название животного
-        </label>
-        <input name="name" type="text" className="form-control" id="animalTitleId" />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="animalDescriptionId" className="form-label">
-          Описание
-        </label>
-        <input name="description" type="text" className="form-control" id="animalDescriptionId" />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="animalCoverId" className="form-label">
-          Изображение
-        </label>
-        <input name="img" type="text" className="form-control" id="animalCoverId" />
-      </div>
-      <button type="submit" className="btn btn-primary">
-        Добавить
-      </button>
-    </form>
+    <div className="container">
+      <form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label
+            style={{ color: 'white', fontWeight: '600' }}
+            htmlFor="animalTitleId"
+            className="form-label"
+          >
+            Название животного
+          </label>
+          <input
+            style={{ opacity: '0.5' }}
+            name="name"
+            type="text"
+            className="form-control"
+            id="animalTitleId"
+          />
+        </div>
+        <div className="mb-3">
+          <label
+            style={{ color: 'white', fontWeight: '600' }}
+            htmlFor="animalDescriptionId"
+            className="form-label"
+          >
+            Описание
+          </label>
+          <input
+            style={{ opacity: '0.5' }}
+            name="description"
+            type="text"
+            className="form-control"
+            id="animalDescriptionId"
+          />
+        </div>
+        <div className="mb-3">
+          <label
+            style={{ color: 'white', fontWeight: '600' }}
+            htmlFor="animalCoverId"
+            className="form-label"
+          >
+            Изображение
+          </label>
+          <input
+            style={{ opacity: '0.5' }}
+            name="img"
+            type="text"
+            className="form-control"
+            id="animalCoverId"
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Добавить
+        </button>
+      </form>
+    </div>
   );
 }
