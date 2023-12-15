@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-export default function TarifCard({ tarif, setTarifState }) {
+export default function TarifCard({ tarif, setTarifState, admin }) {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({ ...tarif });
 
@@ -55,9 +55,11 @@ export default function TarifCard({ tarif, setTarifState }) {
         </>
       )}
       <div className="card-body">
-        <button onClick={handleEditState} type="button" className="btn btn-primary">
-          {isEditing ? 'Сохранить' : 'Редактировать'}
-        </button>
+        {admin ? (
+          <button onClick={handleEditState} type="button" className="btn btn-primary">
+            {isEditing ? 'Сохранить' : 'Редактировать'}
+          </button>
+        ) : null}
       </div>
     </div>
   );

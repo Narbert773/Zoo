@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-export default function AnimalCard({ animal, deleteHandler, setAnimalsState }) {
+export default function AnimalCard({ animal, deleteHandler, setAnimalsState, admin }) {
+  console.log(admin);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({ ...animal });
 
@@ -59,12 +60,16 @@ export default function AnimalCard({ animal, deleteHandler, setAnimalsState }) {
           </div>
         </div>
       </div>
-      <button onClick={handleEditState} type="button" className="btn btn-info">
-        {isEditing ? 'Сохранить' : 'Редактировать'}
-      </button>
-      <button onClick={() => deleteHandler(animal.id)} type="button" className="btn btn-danger">
-        Удалить
-      </button>
+      {admin ? (
+        <>
+          <button onClick={handleEditState} type="button" className="btn btn-info">
+            {isEditing ? 'Сохранить' : 'Редактировать'}
+          </button>
+          <button onClick={() => deleteHandler(animal.id)} type="button" className="btn btn-danger">
+            Удалить
+          </button>
+        </>
+      ) : null}
     </div>
   );
 }

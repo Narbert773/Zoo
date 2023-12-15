@@ -4,9 +4,14 @@ import { Animal, Image } from '../../db/models';
 const animalsRouter = express.Router();
 
 animalsRouter.get('/', async (req, res) => {
-  const allAnimals = await Animal.findAll();
-  const initState = { animals: allAnimals };
-  res.render('AnimalsPage', initState);
+  try {
+    const allAnimals = await Animal.findAll();
+    const initState = { animals: allAnimals };
+    res.render('AnimalsPage', initState);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 animalsRouter.delete('/:animalId', async (req, res) => {
@@ -48,14 +53,25 @@ animalsRouter.patch('/:animalId', async (req, res) => {
   }
 });
 
-animalsRouter.get('/add', (req, res) => res.render('AnimalsAddPage'));
+animalsRouter.get('/add', (req, res) => {
+  try {
+    res.render('AnimalsAddPage');
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 animalsRouter.get('/:animalId', async (req, res) => {
-  const { animalId } = req.params;
-  const oneAnimal = await Animal.findOne({ where: { id: animalId }, include: Image });
-  const initState = { oneAnimal };
-
-  res.render('OneAnimalPage', initState);
+  try {
+    const { animalId } = req.params;
+    const oneAnimal = await Animal.findOne({ where: { id: animalId }, include: Image });
+    const initState = { oneAnimal };
+    res.render('OneAnimalPage', initState);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 export default animalsRouter;

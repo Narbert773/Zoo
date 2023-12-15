@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AnimalCard from '../ui/AnimalCard';
 
-export default function AnimalsPage({ animals }) {
+export default function AnimalsPage({ animals, admin }) {
   const [animalsState, setAnimalsState] = useState(animals);
 
   const deleteHandler = async (animalId) => {
@@ -22,6 +22,7 @@ export default function AnimalsPage({ animals }) {
               animal={animal}
               deleteHandler={deleteHandler}
               setAnimalsState={setAnimalsState}
+              admin={admin}
             />
           </div>
         </div>
